@@ -13,7 +13,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default class App extends Component {
 
-componentWillMount() {
+componentDidMount() {
     store.dispatch(uploadClients());
 }
 
@@ -23,15 +23,15 @@ componentWillMount() {
                 <React.Fragment>
                       <Header as="h1" content="Client List" textAlign='center' />
                       <Search />
-                  <Grid columns={2} centered>
-                    <Grid.Column width={3}>
+                  <Grid columns={1} centered>
+                    <Grid.Column width={10}>
                       <List />
                       
                     </Grid.Column>
                     
-                    <Grid.Column width={7}>
+                    {/* <Grid.Column width={7}>
                         <Details />
-                    </Grid.Column>
+                    </Grid.Column> */}
                   </Grid>
                 </React.Fragment>
             </Provider>

@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
 
-const clientsData = {
-    results: []
-};
+const clientsData = [];
 
 const clientsReducer = (state = clientsData, action) => {
     if (action.type === 'UPLOAD_CLIENTS') {

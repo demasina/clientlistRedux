@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Header, Item, Image, Grid, Divider, Segment } from 'semantic-ui-react';
+import { Header, Item, Image, Grid, Divider, Segment, Table } from 'semantic-ui-react';
 
 const Details = ({client}) => {
     if (!client) {
@@ -8,15 +8,16 @@ const Details = ({client}) => {
     }
 
     return (
-        <Segment>
+        <Table.Row>
         <Grid columns={2}>
+            
             <Grid.Column width={4}>
-                <Image circular size="medium" src={client.picture.large} alt=""/>
+                <Image circular size="small" src={client.picture.large} alt=""/>
             </Grid.Column>
             <Grid.Column width={12}>
                 <Item>
-                    <Item.Header as="h2">{client.name.first + ' ' + client.name.last}</Item.Header>
-                    {/* <Item.Meta as="h4">{client.job.title + ' - ' + client.job.company}</Item.Meta> */}
+                    <Item.Header as="h2">{client.name.first}</Item.Header>
+                    <Item.Meta as="h4">{client.gender}</Item.Meta>
                 </Item>
                 <Divider />
                 <div>Contacts:</div>
@@ -36,7 +37,7 @@ const Details = ({client}) => {
             </Grid.Column>
 
         </Grid>
-        </Segment>
+        </Table.Row>
     );
 };
 

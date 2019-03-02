@@ -16,7 +16,7 @@ export const searchAction = (string) => ({
 export const uploadClients = () => dispatch => {
     fetch('https://randomuser.me/api/?results=10')
         .then((response) => response.json())
-        .then((clients) => {dispatch(uploadClientsAction(clients));})
+        .then((clients) => {dispatch(uploadClientsAction(clients.results));})
 };
 
 

@@ -12,19 +12,28 @@ class ListContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
         this.filteredClients = this.filter(nextProps.clients, nextProps.search);
-        this.props.setExtendedView(this.filteredClients[0]);
+        // this.props.setExtendedView(this.filteredClients[0]);
     }
 
     filter(clients, search) {
         if (!search) {
             return clients;
         }
-        const filteredClients = clients.results.filter((client) => {
+        const filteredClients = clients.filter((client) => {
             let arrClient = [];
-            for (let key in client) {
-                arrClient = [...arrClient, ...Object.values(client[key])];
+            let clientName = client.name.first; 
+            for (let key in clientName) {
+                console.log(clientName)
+                arrClient = [...arrClient, ...Object.values(clientName[key])];
+                console.log(arrClient)
             }
+            let str = arrClient.join('');
+            arrClient = [];
+            arrClient.push(str)
+            console.log(str)
+            console.log( arrClient.some((item) => item.toLowerCase().includes(search)));
             return arrClient.some((item) => item.toLowerCase().includes(search));
         });
         console.log(filteredClients)
